@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var uiElements = ["UISegmentedControl",
+                      "UILabel",
+                      "UISlaider",
+                      "UITextField",
+                      "UIButton",
+                      "UIDatePicker"]
+    
+    var selectedElemented: String?
+    
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var label: UILabel!
     @IBOutlet var slider: UISlider!
@@ -55,14 +64,59 @@ class ViewController: UIViewController {
         labelDate.numberOfLines = 2
         
         labelSwitch.text = "Hide all elements"
-        
+      
+        choiceUiElement()
+        createToolbar()
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func hideallElements() {
+        segmentedControl.isHidden = true
+        label.isHidden = true
+        slider.isHidden = true
+        buttonDone.isHidden = true
+        datePicer.isHidden = true
+        sliderLabel.isHidden = true
+        textField.isHidden = true
+        labelSwitch.isHidden = true
+        labelDate.isHidden = true
+
+        
     }
+  
+     func choiceUiElement() {
+        
+        let elementPicker = UIPickerView()
+        elementPicker.delegate = self
+        
+        textField.inputView = elementPicker
+        
+        elementPicker.backgroundColor = .brown
+    }
+    
+    func createToolbar() {
+    
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(dismissKeyboard))
+        
+        toolbar.setItems([doneButton], animated: true)
+        toolbar.isUserInteractionEnabled = true
+        
+        textField.inputAccessoryView = toolbar
+        
+        toolbar.tintColor = .white
+        toolbar.barTintColor = .brown
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func choiseSegment(_ sender: UISegmentedControl) {
         label.isHidden = false
@@ -138,5 +192,47 @@ class ViewController: UIViewController {
         
     }
     
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return uiElements.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return uiElements[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedElemented = uiElements[row]
+        textField.text = selectedElemented
+        
+        switch row {
+        case 0:
+            hideallElements()
+            segmentedControl.isHidden = false
+        case 1:
+            hideallElements()
+            label.isHidden = false
+        case 2:
+            hideallElements()
+            slider.isHidden = false
+        case 3:
+            hideallElements()
+            textField.isHidden = false
+        case 4:
+            hideallElements()
+            buttonDone.isHidden = false
+        case 5:
+            hideallElements()
+            datePicer.isHidden = false
+ 
+        default:
+            hideallElements()
+        }
+    }
 }
 
