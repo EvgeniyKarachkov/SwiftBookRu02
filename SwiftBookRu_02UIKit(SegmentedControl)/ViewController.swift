@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet var textField: UITextField!
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var datePicer: UIDatePicker!
+    @IBOutlet var labelSwitch: UILabel!
+    @IBOutlet var dateRicer: UIDatePicker!
+    @IBOutlet var buttonDone: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,13 @@ class ViewController: UIViewController {
         textFieldLabel.text = " "
         textFieldLabel.font = label.font.withSize(35)
         textFieldLabel.textAlignment = .center
+        
+        labelDate.font = labelDate.font.withSize(30)
+        labelDate.textAlignment = .center
+        labelDate.numberOfLines = 2
+        
+        labelSwitch.text = "Hide all elements"
+        
         
     }
     
@@ -96,7 +106,7 @@ class ViewController: UIViewController {
             
         } else {
             textFieldLabel.text = textField.text
-            textField.text = nil 
+            textField.text = nil
         }
     }
     
@@ -107,6 +117,25 @@ class ViewController: UIViewController {
         
         let dateValue = dateFormatter.string(from: sender.date)
         labelDate.text = dateValue
+    }
+    
+    @IBAction func `switch`(_ sender: UISwitch) {
+        segmentedControl.isHidden = !segmentedControl.isHidden
+        label.isHidden = !label.isHidden
+        slider.isHidden = !slider.isHidden
+        sliderLabel.isHidden = !sliderLabel.isHidden
+        textFieldLabel.isHidden = !textFieldLabel.isHidden
+        textField.isHidden = !textField.isHidden
+        labelDate.isHidden = !labelDate.isHidden
+        dateRicer.isHidden = !dateRicer.isHidden
+        buttonDone.isHidden = !buttonDone.isHidden
+        
+        if sender.isOn {
+            labelSwitch.text = "Hide all elements"
+        } else {
+            labelSwitch.text = "Show all elements"
+        }
+        
     }
     
 }

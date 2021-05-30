@@ -101,7 +101,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="npr-Lf-eLc">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="npr-Lf-eLc">
                                         <rect key="frame" x="20" y="619" width="327" height="162"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="162" id="dqq-XH-0yg"/>
@@ -109,16 +109,32 @@
                                         <date key="date" timeIntervalSinceReferenceDate="644100672.01744497">
                                             <!--2021-05-30 20:51:12 +0000-->
                                         </date>
+                                        <locale key="locale" localeIdentifier="ru"/>
                                         <connections>
                                             <action selector="datePicer:" destination="BYZ-38-t0r" eventType="valueChanged" id="rPv-cK-4SZ"/>
                                         </connections>
                                     </datePicker>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cp3-YK-ucP">
+                                        <rect key="frame" x="298" y="830" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switch:" destination="BYZ-38-t0r" eventType="valueChanged" id="ng1-tr-Muy"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1F-lq-Yvx">
+                                        <rect key="frame" x="52" y="830" width="238" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jTg-YF-Oyy" firstAttribute="top" secondItem="WAx-TF-8NL" secondAttribute="bottom" constant="66" id="1jI-vr-OuU"/>
                                     <constraint firstItem="XVI-2t-9vu" firstAttribute="leading" secondItem="aIh-Wf-AkK" secondAttribute="leading" id="6Bz-Mc-GcK"/>
                                     <constraint firstItem="npr-Lf-eLc" firstAttribute="leading" secondItem="Vr2-93-XJo" secondAttribute="leading" constant="20" id="7Hl-UC-91L"/>
+                                    <constraint firstItem="cp3-YK-ucP" firstAttribute="leading" secondItem="npr-Lf-eLc" secondAttribute="trailing" constant="-49" id="Ex8-8Q-SiX"/>
                                     <constraint firstItem="aIh-Wf-AkK" firstAttribute="trailing" secondItem="WAx-TF-8NL" secondAttribute="trailing" id="Fnc-VF-Wfj"/>
+                                    <constraint firstItem="k1F-lq-Yvx" firstAttribute="leading" secondItem="irh-32-IrR" secondAttribute="leading" id="Hsn-F9-7ZR"/>
+                                    <constraint firstItem="k1F-lq-Yvx" firstAttribute="top" secondItem="npr-Lf-eLc" secondAttribute="bottom" constant="49" id="KgQ-qD-tlt"/>
                                     <constraint firstItem="XVI-2t-9vu" firstAttribute="trailing" secondItem="aIh-Wf-AkK" secondAttribute="trailing" id="NON-Vf-3r7"/>
                                     <constraint firstItem="XG4-dd-Ade" firstAttribute="top" secondItem="jTg-YF-Oyy" secondAttribute="bottom" constant="47" id="O3T-5i-E5l"/>
                                     <constraint firstItem="XG4-dd-Ade" firstAttribute="trailing" secondItem="kJM-tL-0lO" secondAttribute="trailing" id="S8h-YH-gLm"/>
@@ -140,8 +156,11 @@
                                     <constraint firstItem="aIh-Wf-AkK" firstAttribute="top" secondItem="XVI-2t-9vu" secondAttribute="bottom" constant="61" id="pSQ-G0-sW5"/>
                                     <constraint firstItem="RS0-4H-A6l" firstAttribute="trailing" secondItem="irh-32-IrR" secondAttribute="trailing" id="r3h-5f-x7y"/>
                                     <constraint firstItem="npr-Lf-eLc" firstAttribute="top" secondItem="irh-32-IrR" secondAttribute="bottom" constant="70" id="tCy-ay-VNg"/>
+                                    <constraint firstItem="k1F-lq-Yvx" firstAttribute="top" secondItem="cp3-YK-ucP" secondAttribute="top" id="tk7-HA-n2I"/>
                                     <constraint firstItem="jTg-YF-Oyy" firstAttribute="trailing" secondItem="XG4-dd-Ade" secondAttribute="trailing" id="uYY-CH-p9R"/>
                                     <constraint firstItem="RS0-4H-A6l" firstAttribute="leading" secondItem="irh-32-IrR" secondAttribute="leading" id="vPM-NT-D5r"/>
+                                    <constraint firstItem="cp3-YK-ucP" firstAttribute="leading" secondItem="k1F-lq-Yvx" secondAttribute="trailing" constant="8" symbolic="YES" id="wNl-YF-gmI"/>
+                                    <constraint firstItem="k1F-lq-Yvx" firstAttribute="bottom" secondItem="cp3-YK-ucP" secondAttribute="bottom" id="xyo-5P-7wb"/>
                                     <constraint firstItem="XG4-dd-Ade" firstAttribute="leading" secondItem="kJM-tL-0lO" secondAttribute="leading" id="yNk-91-e5M"/>
                                     <constraint firstItem="jTg-YF-Oyy" firstAttribute="leading" secondItem="XG4-dd-Ade" secondAttribute="leading" id="zw6-Kf-Pws"/>
                                 </constraints>
@@ -158,9 +177,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="buttonDone" destination="RS0-4H-A6l" id="t3f-hD-uKT"/>
                         <outlet property="datePicer" destination="npr-Lf-eLc" id="JNR-Vn-4oN"/>
+                        <outlet property="dateRicer" destination="npr-Lf-eLc" id="GCw-pR-DjR"/>
                         <outlet property="label" destination="aIh-Wf-AkK" id="3zk-YX-z5C"/>
                         <outlet property="labelDate" destination="irh-32-IrR" id="4eB-YM-RoW"/>
+                        <outlet property="labelSwitch" destination="k1F-lq-Yvx" id="AUv-xn-4bt"/>
                         <outlet property="segmentedControl" destination="XVI-2t-9vu" id="XNh-lC-vmb"/>
                         <outlet property="slider" destination="WAx-TF-8NL" id="zms-2h-w3l"/>
                         <outlet property="sliderLabel" destination="jTg-YF-Oyy" id="5Zs-AV-9eM"/>
